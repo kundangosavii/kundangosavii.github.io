@@ -1,0 +1,25 @@
+
+---
+const { logo, alt, title, role, description, duration, locationType } = Astro.props;
+---
+
+<div class="flex items-center bg-white dark:bg-black rounded-xl shadow p-6 w-full max-w-3xl border border-gray-200 dark:border-zinc-800">
+	<div class="flex-shrink-0 mr-6">
+		<img src={logo} alt={alt} class="w-14 h-14 rounded-full border border-gray-300" />
+	</div>
+	<div class="flex-1 flex flex-col md:flex-row md:items-center justify-between w-full">
+		<div>
+			<div class="font-bold text-lg text-gray-900 dark:text-white">{title}</div>
+			<div class="font-mono text-sm text-gray-600 dark:text-gray-300">{role}</div>
+			<div class="text-gray-500 dark:text-gray-400 text-sm mt-1">{description}</div>
+		</div>
+		<div class="flex flex-col items-end mt-4 md:mt-0 min-w-fit">
+			<div class="text-gray-500 dark:text-gray-400 text-sm">{duration}</div>
+			{locationType && (
+				<span class="mt-2 px-3 py-1 bg-gray-100 dark:bg-zinc-800 text-xs font-mono rounded border border-gray-300 dark:border-zinc-700">
+					{locationType}
+				</span>
+			)}
+		</div>
+	</div>
+</div>
