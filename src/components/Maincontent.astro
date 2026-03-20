@@ -1,0 +1,73 @@
+---
+import Card from './Workcard.astro';
+import Featuredcard from './Featuredcard.astro';
+import Blogcard from './Blogcard.astro';
+---
+
+<section>
+    <div class="flex flex-col items-center justify-center mt-8">
+     <span class="text-4xl font-bold text-gray-800 dark:text-gray-200"> Work Experience </span>
+        <div class="w-full flex items-center justify-center mt-8 px-4">
+            <Card
+                logo="/pihow_logo.jpg"
+                alt="Pihow Logo"
+                title="Pihow Services"
+                role="Web Developer Intern"
+                description="Working on scalable web applications."
+                duration="January 2026 - Present"
+                locationType="Remote"
+            />
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center mt-8">
+        <span class="text-4xl font-bold text-gray-800 dark:text-gray-200"> Featured Work</span>
+        <div class="w-full mt-4 px-4">
+            <Featuredcard
+                thumbnail="/Ai_saathi_thumbnail.png"
+                altText="AI Saathi Thumbnail"
+                title="AI Saathi"
+                hook="An AI-powered youth mental wellness platform."
+                Tags={['AI', 'Chatbot', 'Python', 'MERN']}
+                category="Software Engineering"
+                date="September 2025 - October 2025"
+            />
+            <Featuredcard
+                thumbnail="/saptcodex.img.png"
+                altText="AI Saathi Thumbnail"
+                title="SaptCodex"
+                hook="AI-Powered Programming & Career Readiness Platform"
+                Tags={['AI', 'Chatbot', 'Python', 'MERN']}
+                category="Software Engineering"
+                date="September 2025 - October 2025"
+            />
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8 mt-12 w-full items-start justify-center">
+        <div class="flex-1 flex flex-col items-center justify-start mt-16 md:mt-0">
+            <Blogcard />
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-start mt-16 md:mt-0">
+            <div class="w-full max-w-xl mx-auto rounded border border-gray-800 bg-black/80 shadow-xl p-10 flex flex-col items-start gap-4">
+                <span class="text-4xl font-serif text-bold text-gray-200 mb-1 tracking-wider uppercase">Open For Collaboration</span>
+                <p class="text-gray-300 text-lg font-sans mb-2">I'm always excited to connect with like-minded individuals for AI and ML projects, research, or creative tech collaborations. Let's build something impactful together!</p>
+                <div class="flex w-full justify-between items-center mt-4">
+                    <span class="text-base text-gray-400 font-medium">Let's connect</span>
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="ml-4 px-6 py-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold rounded-lg shadow-lg transition-all duration-200 border border-yellow-500">View CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <footer class="w-full bg-black/90 border border-gray-900 mt-16 py-12 flex flex-col items-center justify-center gap-6">
+            <span class="text-xs tracking-widest text-gray-400 uppercase mb-2">Stay in the loop</span>
+            <div class="flex flex-row items-center gap-2 w-full max-w-md justify-center">
+                <input type="text" placeholder="gosavikundan4@gmail.com" class="bg-black border border-gray-700 rounded px-4 py-2 text-gray-100 font-mono w-full focus:outline-none focus:border-yellow-500 transition" />
+                <button class="px-5 py-2 bg-gray-900 text-gray-300 font-mono text-xs rounded border border-gray-700 hover:bg-gray-800 hover:text-white transition">Subscribe</button>
+            </div>
+            <span class="text-xs tracking-widest text-gray-400 uppercase mt-6">Yours Truly,</span>
+            <span class="text-3xl font-serif italic text-white mb-2">Kundan Nimba Goswami</span>
+        </footer>
+
+</section>
