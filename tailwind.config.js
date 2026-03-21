@@ -17,6 +17,7 @@ export default {
         cormorant: ['Cormorant Garamond', 'serif'],
         orbiter: ['TASA Orbiter', 'serif'],
         playfair: ['Playfair Display', 'serif'],
+
       },
     },
   },
