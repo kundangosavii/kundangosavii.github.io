@@ -1,24 +1,26 @@
 ---
-import { Github, Twitter, Mail, Linkedin } from "lucide-react"
+import { Github, Twitter, Mail, Linkedin, ArrowDown } from "lucide-react"
 ---
 
-<section class="relative min-h-screen flex items-center justify-center">
+<section class="relative min-h-screen flex flex-col items-center justify-center">
 
-  <div class="text-center">
+  <div class="hero text-center mt-32 flex flex-col items-center justify-center flex-1">
 
-    <h1 class="font-serif text-9xl font-normal">
-        KUNDAN
+    <h1 class="font-serif text-9xl font-normal transition-transform duration-300 hover:scale-110 tracking-wide text-gray-900 dark:text-white cursor-pointer">
+      KUNDAN
     </h1>
 
-    <h2 class="font-poppins text-6xl font-normal tracking-wide text-purple-600 dark:text-purple-400">
+    <h2 class="font-poppins text-6xl font-normal tracking-wide text-purple-600 dark:text-purple-400 transition-transform duration-300 hover: cursor-pointer hover:scale-105 mt-4">
     GOSWAMI
     </h2>
 
-    <div class="bg-white/10 dark:bg-[#0b0b0b] backdrop-blur-md w-96 h-24 mx-auto mt-8 rounded-md flex items-center justify-center">
+    <div class="group">
+      <div class="bg-white/10 dark:bg-[#0b0b0b] backdrop-blur-md w-96 h-24 mx-auto mt-8 rounded-md flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-105">
       <p class="font-poppines text-sm text-gray-700 dark:text-gray-300 px-4">
        <span class="text-md font-bold">Second year Computer Science student</span></br><span class="text-md font-bold">Exploring in AI and ML</span></br>
        <span class="text-md font-bold">Passionate about building innovative solutions</span>
       </p>
+      </div>
     </div>
 
     <div class="flex items-center justify-center gap-4">
@@ -46,6 +48,9 @@ import { Github, Twitter, Mail, Linkedin } from "lucide-react"
       >
         <Twitter />
       </a>
+    </div>
+    <div class="inline-block mt-14 px-2 py-2 rounded-full border border-black animate-bounce text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition dark:border-white/50">
+        <a href="#main-content" class="scroll-smooth"><ArrowDown /></a>
     </div>
   </div>
 
