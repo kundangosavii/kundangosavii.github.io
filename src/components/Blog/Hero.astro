@@ -1,0 +1,24 @@
+---
+---
+<section class="relative w-full h-96 flex flex-col items-start justify-start bg-gradient-to-br from-gray-50 via-white/50 to-white dark:from-gray-900 dark:via-black/50 dark:to-black">
+    <div class="relative z-10 flex flex-col items-start justify-start ml-56 px-8 mt-36">
+        <div class="flex gap-2 mb-6">
+            <button class="filter-btn px-4 py-1 rounded-full bg-white text-black font-semibold text-xs shadow transition-all">ALL</button>
+            <span class="text-gray-400 text-xs flex items-center"></span>
+        </div>
+        <h1 class="text-6xl md:text-7xl font-serif font-bold text-black mb-4 text-left dark:text-white">The Insights</h1>
+        <p class="text-sm font-poppins md:text-xl text-gray-700 mb-8 text-left dark:text-white/70"></p>
+        <div class="flex gap-3 mb-2">
+            <button class="filter-btn px-4 py-1 rounded-full border border-gray-600 text-gray-600 font-semibold text-xs hover:bg-gray-800 transition-all dark:text-white/80" data-category="TECH">TECH</button>
+            <button class="filter-btn px-4 py-1 rounded-full border border-gray-600 text-gray-600 font-semibold text-xs hover:bg-gray-800 transition-all dark:text-white/80" data-category="SOCIAL">SOCIAL</button>
+        </div>
+        <script type="module" client:load>
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cat = btn.dataset.category;
+                    window.dispatchEvent(new CustomEvent('blog-filter', { detail: cat }));
+                });
+            });
+        </script>
+    </div>
+</section>

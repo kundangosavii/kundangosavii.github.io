@@ -1,0 +1,58 @@
+---
+import Navbar from '../components/Global/Navbar.astro';
+import Maincontent from '../components/Blog/Maincontent.astro';
+import Hero from '../components/Blog/Hero.astro';
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>Blogs - Kundan Gosavi</title>
+    
+    <meta name="description" content="Portfolio of Kundan Gosavi - AI and Software Developer" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=TASA+Orbiter:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script is:inline>
+        if(localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark')
+        }
+    </script>
+
+</head>
+<body class="bg-white text-gray-900 dark:bg-black dark:text-gray-200">
+
+    <!-- Navbar -->
+    <Navbar />
+
+    <!-- Page Content -->
+    <main class="min-h-screen">
+        <slot />
+        <Hero />
+        <Maincontent />
+
+        <script is:inline>
+        let toggle = document.getElementById('theme-toggle')
+        toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark')
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark')
+        } else {
+            localStorage.setItem('theme', 'light')
+        }
+        })
+    
+        </script>
+    </main>
+
+    <!-- Footer -->
+</body>
+</html>

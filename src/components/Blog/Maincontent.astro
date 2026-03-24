@@ -1,0 +1,29 @@
+---
+import BlogCard from './BlogcardHorizontal.astro';
+---
+
+
+<div id="blog-list">
+	<div class="blog-card" data-category="TECH">
+		<BlogCard category="TECH" Time="Mar 06" Title="Sample Blog Post" Description="This is a sample blog post description." link="#" />
+	</div>
+	<div class="blog-card" data-category="SOCIAL">
+		<BlogCard category="SOCIAL" Time="Mar 10" Title="Another Blog Post" Description="This is another sample blog post description." link="#" />
+	</div>
+	<div class="blog-card" data-category="TECH">
+		<BlogCard category="TECH" Time="Mar 15" Title="Yet Another Blog Post" Description="This is yet another sample blog post description." link="#" />
+	</div>
+	<div class="blog-card" data-category="TECH">
+		<BlogCard category="TECH" Time="Mar 20" Title="Final Blog Post" Description="This is the final sample blog post description." link="#" />
+	</div>
+</div>
+<script type="module" client:load>
+	const cards = document.querySelectorAll('#blog-list .blog-card');
+	function filterBlogs(cat) {
+		cards.forEach(card => {
+			card.style.display = (cat === 'ALL' || card.dataset.category === cat) ? '' : 'none';
+		});
+	}
+	window.addEventListener('blog-filter', e => filterBlogs(e.detail));
+	filterBlogs('ALL');
+</script>
