@@ -1,0 +1,56 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ProjectCard from '../components/Project/Projectcard.astro';
+---
+
+<MainLayout title="Projects - Kundan Gosavi">
+  <div class="min-h-screen bg-white dark:bg-black">
+    <div class="mx-auto max-w-6xl px-6 py-28 h-28 md:px-10">
+      <h1 class="mb-4 font-playfair text-5xl text-zinc-900 dark:text-white">My Projects</h1>
+      <p class="text-gray-600 dark:text-white/50 text-base">
+        Here are some of the projects I've been working on.
+      </p>
+    </div>
+    <ProjectCard 
+      thumbnail="/Ai_saathi_thumbnail.png"
+      altText="Project 1 Thumbnail"
+      title="Project One"
+      hook="A brief description of Project One that highlights its main features and technologies used."
+      Tags={['React', 'Node.js', 'MongoDB']}
+      category="Web Development"
+      date="Jan 2024"
+      projectUrl="https://ai-saathi-by-mind-spring-ai-1.vercel.app/"
+      githubUrl="https://github.com/mind-spring/ai-saathi"
+    />
+    <ProjectCard 
+      thumbnail="/Ai_saathi_thumbnail.png"
+      altText="Project 2 Thumbnail"
+      title="Project Two"
+      hook="A brief description of Project Two that highlights its main features and technologies used."
+      Tags={['Python', 'Django', 'PostgreSQL']}
+      category="Backend Development"
+      date="Feb 2024"
+      projectUrl=""
+    />
+    <ProjectCard 
+      thumbnail="/Ai_saathi_thumbnail.png"
+      altText="Project 3 Thumbnail"
+      title="Project Three"
+      hook="A brief description of Project Three that highlights its main features and technologies used."
+      Tags={['Machine Learning', 'TensorFlow', 'Keras']}
+      category="Data Science"
+      date="Mar 2024"
+      projectUrl=""
+    />
+    <ProjectCard 
+      thumbnail="/Ai_saathi_thumbnail.png"
+      altText="Project 4 Thumbnail"
+      title="Project Four"
+      hook="A brief description of Project Four that highlights its main features and technologies used."
+      Tags={['Mobile Development', 'Flutter', 'Firebase']}
+      category="Mobile Development"
+      date="Apr 2024"
+      projectUrl=""
+    />
+  </div>
+</MainLayout>

@@ -11,11 +11,11 @@ const { category, Time, Title, Description, link } = Astro.props;
         <a href={link} class="block text-3xl font-serif text-black leading-tight dark:text-white">
             {Title || 'Blog Title Goes Here'}
         </a>
-        <p class="text-gray-600 dark:text-gray-800 text-base">
+        <p class="text-gray-600 dark:text-white/50 text-base">
             {Description || 'Short description of the blog post goes here. This should be concise and engaging.'}
         </p>
         <div class="mt-4">
-            <a href={link} class="text-sm text-gray-600 tracking-widest font-mono flex items-center gap-2">
+            <a href={link} class="text-sm text-white/30 tracking-widest font-mono flex items-center gap-2">
                 READ MORE <span class="text-lg">→</span>
             </a>
         </div>
