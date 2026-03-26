@@ -1,21 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BlogCard from './BlogcardHorizontal.astro';
+
+const posts = await getCollection('blog');
 ---
-
-
 <div id="blog-list">
-	<div class="blog-card" data-category="TECH">
-		<BlogCard category="TECH" Time="Mar 06" Title="Sample Blog Post" Description="This is a sample blog post description." link="#" />
-	</div>
-	<div class="blog-card" data-category="SOCIAL">
-		<BlogCard category="SOCIAL" Time="Mar 10" Title="Another Blog Post" Description="This is another sample blog post description." link="#" />
-	</div>
-	<div class="blog-card" data-category="TECH">
-		<BlogCard category="TECH" Time="Mar 15" Title="Yet Another Blog Post" Description="This is yet another sample blog post description." link="#" />
-	</div>
-	<div class="blog-card" data-category="TECH">
-		<BlogCard category="TECH" Time="Mar 20" Title="Final Blog Post" Description="This is the final sample blog post description." link="#" />
-	</div>
+	{posts.map(post => (
+		<BlogCard
+			category={post.data.category}
+			Time={post.data.date}
+			Title={post.data.title}
+			Description={post.body.slice(0, 100) + "..."}
+			link={`/blog/${post.slug}`}
+		/>
+	))}
 </div>
 <script type="module" client:load>
 	const cards = document.querySelectorAll('#blog-list .blog-card');

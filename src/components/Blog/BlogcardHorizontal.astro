@@ -8,14 +8,14 @@ const { category, Time, Title, Description, link } = Astro.props;
             <span class="text-xs font-bold tracking-widest text-yellow-400 font-mono">{category || 'TECH'}</span>
             <span class="text-xs text-gray-600 ml-2">{Time || 'Mar 06'}</span>
         </div>
-        <a href={link || '#'} class="block text-3xl font-serif text-black leading-tight dark:text-white">
+        <a href={link} class="block text-3xl font-serif text-black leading-tight dark:text-white">
             {Title || 'Blog Title Goes Here'}
         </a>
         <p class="text-gray-600 dark:text-gray-800 text-base">
             {Description || 'Short description of the blog post goes here. This should be concise and engaging.'}
         </p>
         <div class="mt-4">
-            <a href={link || '#'} class="text-sm text-gray-600 tracking-widest font-mono flex items-center gap-2">
+            <a href={link} class="text-sm text-gray-600 tracking-widest font-mono flex items-center gap-2">
                 READ MORE <span class="text-lg">→</span>
             </a>
         </div>

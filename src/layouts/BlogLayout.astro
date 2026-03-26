@@ -1,8 +1,11 @@
 ---
 import Navbar from '../components/Global/Navbar.astro';
-import Maincontent from '../components/Blog/Maincontent.astro';
-import Hero from '../components/Blog/Hero.astro';
-const { title, description } = Astro.props;
+import '../styles/global.css';
+
+const {
+    title = 'Blogs - Kundan Gosavi',
+    description = 'Journal entries and technical writing by Kundan Gosavi',
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -12,9 +15,9 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     
-    <title>Blogs - Kundan Gosavi</title>
+    <title>{title}</title>
     
-    <meta name="description" content="Portfolio of Kundan Gosavi - AI and Software Developer" />
+    <meta name="description" content={description} />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,19 +39,19 @@ const { title, description } = Astro.props;
     <!-- Page Content -->
     <main class="min-h-screen">
         <slot />
-        <Hero />
-        <Maincontent />
 
         <script is:inline>
-        let toggle = document.getElementById('theme-toggle')
-        toggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark')
-        if (document.documentElement.classList.contains('dark')) {
-            localStorage.setItem('theme', 'dark')
-        } else {
-            localStorage.setItem('theme', 'light')
+        const toggle = document.getElementById('theme-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
         }
-        })
     
         </script>
     </main>
