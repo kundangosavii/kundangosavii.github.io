@@ -6,8 +6,7 @@ category: "TECH"
 
 ## Introduction
 
-As I enter the final semester of my B.Tech in CSE, it's strange to think about how every decision, big or small, has brought me to where I started...
+Open the lab notesOpen the lab notesOpen the lab notesOpen the lab notes
 
 ## The Beginning: Eager but Unfocused
-
-Like many CS undergrads, I tried DSA and CP during my first year...
+Open the lab notesOpen the lab notesOpen the lab 

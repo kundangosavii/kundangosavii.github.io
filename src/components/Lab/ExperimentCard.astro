@@ -1,0 +1,121 @@
+---
+const { status, title, date, tried, happened, keyLearning, next } = Astro.props;
+
+const getStatusClasses = (status: string) => {
+  const baseClasses = "text-xs font-semibold uppercase px-3 py-1 rounded-full border";
+  
+  switch(status.toLowerCase()) {
+    case 'iterating':
+      return `${baseClasses} bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-700`;
+    case 'blocked':
+      return `${baseClasses} bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-300 dark:border-red-700`;
+    case 'ongoing':
+      return `${baseClasses} bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700`;
+    default:
+      return `${baseClasses} bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700`;
+  }
+};
+---
+
+<div class="flex items-center justify-center w-full mt-4">
+  <div class="flex flex-col bg-white dark:bg-black rounded-lg p-8 w-full max-w-4xl border border-gray-200 dark:border-zinc-700 mx-auto">
+    <!-- Header -->
+    <div class="mb-6">
+      <div class="flex flex-row items-center gap-3 mb-3">
+        <span class:list={[getStatusClasses(status)]}>
+          {status}
+        </span>
+        <span class="text-sm font-mono text-gray-500 dark:text-gray-400">{date}</span>
+      </div>
+      <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-1">{title}</h2>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- What I Tried -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">What I tried:</h3>
+        <div class="space-y-2">
+          {tried && Array.isArray(tried) ? (
+            tried.map((item) => (
+              <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+                <span>{item}</span>
+              </div>
+            ))
+          ) : (
+            <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+              <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+              <span>{tried}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- What Happened -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">What happened:</h3>
+        <div class="space-y-2">
+          {happened && Array.isArray(happened) ? (
+            happened.map((item) => (
+              <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+                <span>{item}</span>
+              </div>
+            ))
+          ) : (
+            <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+              <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+              <span>{happened}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Key Learning -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">Key learning:</h3>
+        <div class="space-y-2">
+          {keyLearning && Array.isArray(keyLearning) ? (
+            keyLearning.map((item) => (
+              <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+                <span>{item}</span>
+              </div>
+            ))
+          ) : (
+            <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+              <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+              <span>{keyLearning}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Next -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">Next:</h3>
+        <div class="space-y-2">
+          {next && Array.isArray(next) ? (
+            next.map((item) => (
+              <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+                <span>{item}</span>
+              </div>
+            ))
+          ) : (
+            <div class="flex gap-3 text-sm text-gray-600 dark:text-gray-400">
+              <span class="text-gray-400 dark:text-gray-500 flex-shrink-0">→</span>
+              <span>{next}</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end">
+        <a href="#" class="mt-6 text-sm font-mono text-black dark:text-white">
+            Open the lab notes <span class="text-lg">→</span>
+        </a>
+    </div>
+  </div>
+</div>

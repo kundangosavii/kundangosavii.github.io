@@ -1,14 +1,36 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import ExperimentCard from '../components/Lab/ExperimentCard.astro';
 ---
 
 <MainLayout title="Lab - Kundan Gosavi">
   <div class="min-h-screen bg-white dark:bg-black">
-    <div class="mx-auto max-w-6xl px-6 py-28 md:px-10">
+    <div class="mx-auto max-w-6xl px-6 py-28 h-64 md:px-10 pb-28">
       <h1 class="mb-4 font-playfair text-5xl text-zinc-900 dark:text-white">My Lab</h1>
       <p class="text-gray-600 dark:text-white/50 text-base">
         Welcome to my lab! Here you'll find various experiments and projects I'm working on.
       </p>
+    </div>
+    
+    <div class="mx-auto max-w-6xl px-6 pb-20 md:px-10">
+      <ExperimentCard 
+        status="Ongoing"
+        title="Auto Caption Generator"
+        date="Jan 2026"
+        tried="Built caption pipeline using speech-to-text API"
+        happened="Works but timing alignment is off"
+        keyLearning="Syncing timestamps > transcription accuracy"
+        next="Improve word-level timing"
+      />
+      <ExperimentCard 
+        status="Blocked"
+        title="Fire Predication Model"
+        date="Jan 2026"
+        tried="Built caption pipeline using speech-to-text API"
+        happened="Works but timing alignment is off"
+        keyLearning="Syncing timestamps > transcription accuracy"
+        next="Improve word-level timing"
+      />
     </div>
   </div>
 </MainLayout>
