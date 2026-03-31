@@ -1,6 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ExperimentCard from '../components/Lab/ExperimentCard.astro';
+
+const notes = await getCollection('lab');
 ---
 
 <MainLayout title="Lab - Kundan Gosavi">
@@ -13,24 +16,18 @@ import ExperimentCard from '../components/Lab/ExperimentCard.astro';
     </div>
     
     <div class="mx-auto max-w-6xl px-6 pb-20 md:px-10">
-      <ExperimentCard 
-        status="Ongoing"
-        title="Auto Caption Generator"
-        date="Jan 2026"
-        tried="Built caption pipeline using speech-to-text API"
-        happened="Works but timing alignment is off"
-        keyLearning="Syncing timestamps > transcription accuracy"
-        next="Improve word-level timing"
-      />
-      <ExperimentCard 
-        status="Blocked"
-        title="Fire Predication Model"
-        date="Jan 2026"
-        tried="Built caption pipeline using speech-to-text API"
-        happened="Works but timing alignment is off"
-        keyLearning="Syncing timestamps > transcription accuracy"
-        next="Improve word-level timing"
-      />
+      {notes.map((note) => (
+        <ExperimentCard
+          status={note.data.status}
+          title={note.data.title}
+          date={note.data.date}
+          tried={note.data.tried}
+          happened={note.data.happened}
+          keyLearning={note.data.keyLearning}
+          next={note.data.next}
+          link={`/lab/${note.slug}`}
+        />
+      ))}
     </div>
   </div>
 </MainLayout>

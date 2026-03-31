@@ -1,0 +1,58 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('lab');
+  return notes.map((note) => ({ params: { slag: note.slug } }));
+}
+
+const { slag } = Astro.params;
+const note = await getEntryBySlug('lab', slag ?? '');
+
+if (!note) {
+  throw new Error('Lab note not found');
+}
+
+const { Content } = await note.render();
+const toArray = (value: string | string[]) => (Array.isArray(value) ? value : [value]);
+---
+
+<MainLayout title={`${note.data.title} - Lab - Kundan Gosavi`}>
+  <section class="min-h-[calc(100svh-88px)] bg-white px-6 pt-28 pb-16 dark:bg-black md:px-10 md:pt-32">
+    <div class="mx-auto max-w-4xl">
+      <p class="mb-3 text-sm font-mono text-gray-500 dark:text-gray-400">{note.data.date}</p>
+      <h1 class="mb-6 font-playfair text-5xl text-zinc-900 dark:text-white">{note.data.title}</h1>
+
+      <span class="mb-10 inline-block rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold uppercase text-zinc-700 dark:border-zinc-700 dark:text-zinc-300">
+        {note.data.status}
+      </span>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div>
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">What I tried</h2>
+          {toArray(note.data.tried).map((item) => <p class="text-sm text-gray-600 dark:text-gray-400">→ {item}</p>)}
+        </div>
+
+        <div>
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">What happened</h2>
+          {toArray(note.data.happened).map((item) => <p class="text-sm text-gray-600 dark:text-gray-400">→ {item}</p>)}
+        </div>
+
+        <div>
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">Key learning</h2>
+          {toArray(note.data.keyLearning).map((item) => <p class="text-sm text-gray-600 dark:text-gray-400">→ {item}</p>)}
+        </div>
+
+        <div>
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-wide text-gray-700 dark:text-gray-300">Next</h2>
+          {toArray(note.data.next).map((item) => <p class="text-sm text-gray-600 dark:text-gray-400">→ {item}</p>)}
+        </div>
+      </div>
+
+      <article class="prose mt-12 max-w-none dark:prose-invert">
+        <Content />
+      </article>
+    </div>
+  </section>
+</MainLayout>
