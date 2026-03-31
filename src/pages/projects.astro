@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ProjectCard from '../components/Project/Projectcard.astro';
 import { ArrowDown } from 'lucide-react';
+
+const projects = await getCollection('projects');
+
 ---
 
 <MainLayout title="Projects - Kundan Gosavi">
@@ -12,48 +16,23 @@ import { ArrowDown } from 'lucide-react';
         Here are some of the projects I've been working on.
       </p>
     </div>
-    <ProjectCard 
-      thumbnail="/Ai_saathi_thumbnail.png"
-      altText="Project 1 Thumbnail"
-      title="Project One"
-      hook="A brief description of Project One that highlights its main features and technologies used."
-      Tags={['React', 'Node.js', 'MongoDB']}
-      category="Web Development"
-      date="Jan 2024"
-      projectUrl="https://ai-saathi-by-mind-spring-ai-1.vercel.app/"
-      githubUrl="https://github.com/mind-spring/ai-saathi"
-    />
-    <ProjectCard 
-      thumbnail="/Ai_saathi_thumbnail.png"
-      altText="Project 2 Thumbnail"
-      title="Project Two"
-      hook="A brief description of Project Two that highlights its main features and technologies used."
-      Tags={['Python', 'Django', 'PostgreSQL']}
-      category="Backend Development"
-      date="Feb 2024"
-      projectUrl=""
-    />
-    <ProjectCard 
-      thumbnail="/Ai_saathi_thumbnail.png"
-      altText="Project 3 Thumbnail"
-      title="Project Three"
-      hook="A brief description of Project Three that highlights its main features and technologies used."
-      Tags={['Machine Learning', 'TensorFlow', 'Keras']}
-      category="Data Science"
-      date="Mar 2024"
-      projectUrl=""
-    />
-    <ProjectCard 
-      thumbnail="/Ai_saathi_thumbnail.png"
-      altText="Project 4 Thumbnail"
-      title="Project Four"
-      hook="A brief description of Project Four that highlights its main features and technologies used."
-      Tags={['Mobile Development', 'Flutter', 'Firebase']}
-      category="Mobile Development"
-      date="Apr 2024"
-      projectUrl=""
-    />
+
+    {projects.map((proj) => (
+      <ProjectCard
+        thumbnail={proj.data.thumbnail}
+        altText={proj.data.altText}
+        title={proj.data.title}
+        hook={proj.data.hook}
+        tags={proj.data.tags}
+        category={proj.data.category}
+        date={proj.data.date}
+        projectUrl={proj.data.projectUrl}
+        githubUrl={proj.data.githubUrl}
+        link={`/projects/${proj.slug}`}
+      />
+    ))}
   </div>
+    
   <div id="scroll-indicator" class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transition-all duration-300">
     <a
       href="#main-content"
