@@ -3,6 +3,28 @@ import { getCollection } from 'astro:content';
 import BlogCard from './BlogcardHorizontal.astro';
 
 const posts = await getCollection('blog');
+
+function getIntroductionText(body: string): string {
+	const normalized = body.replace(/\r\n/g, '\n');
+	const introMatch = normalized.match(/(?:^|\n)##\s+Introduction\s*\n+([\s\S]*?)(?=\n##\s+|\n#\s+|$)/i);
+	const source = introMatch ? introMatch[1] : normalized;
+
+	const plainText = source
+		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/`([^`]+)`/g, '$1')
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+		.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+		.replace(/^>\s?/gm, '')
+		.replace(/^[-*+]\s+/gm, '')
+		.replace(/^\d+\.\s+/gm, '')
+		.replace(/^#{1,6}\s+/gm, '')
+		.replace(/\n+/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+
+	if (plainText.length <= 180) return plainText;
+	return `${plainText.slice(0, 80).trim()}...`;
+}
 ---
 <div id="blog-list">
 	{posts.map(post => (
@@ -10,7 +32,7 @@ const posts = await getCollection('blog');
 			category={post.data.category}
 			Time={post.data.date}
 			Title={post.data.title}
-			Description={post.body.slice(0, 100) + "..."}
+			Description={getIntroductionText(post.body)}
 			link={`/blog/${post.slug}`}
 		/>
 	))}
