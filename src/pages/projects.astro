@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ProjectCard from '../components/Project/Projectcard.astro';
 import { ArrowDown } from 'lucide-react';
+import Footer from '../components/Global/footer.astro';
 
 const projects = await getCollection('projects');
 
@@ -59,4 +60,5 @@ const projects = await getCollection('projects');
     toggleIndicator();
     window.addEventListener('scroll', toggleIndicator, { passive: true });
   </script>
+  <Footer />
 </MainLayout>
