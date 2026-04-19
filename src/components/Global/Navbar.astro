@@ -1,5 +1,5 @@
 ---
-import { Home, FlaskConical, BookOpenText, Code, Menu, FileUser } from "lucide-react"
+import { Home, FlaskConical, BookOpenText, Code, Menu, FileUser } from "lucide-react";
 ---
 
 <nav class="font-sans fixed inset-x-0 top-0 z-50 flex justify-center pt-6">
@@ -53,9 +53,15 @@ import { Home, FlaskConical, BookOpenText, Code, Menu, FileUser } from "lucide-r
         <FileUser client:load size={18} strokeWidth={2} /> Resume
       </a>
       
-      <a href="#" class="flex items-center gap-2 hover:text-black dark:hover:text-white transition">
-        <Menu client:load size={18} strokWidth={2} /> Menu
-      </a>
+      <button
+        id="menu-search-open"
+        type="button"
+        class="flex items-center gap-2 hover:text-black dark:hover:text-white transition"
+        aria-haspopup="dialog"
+        aria-controls="search-overlay-dialog"
+      >
+        <Menu client:load size={18} strokeWidth={2} /> Menu
+      </button>
 
 
       <button id="theme-toggle" class="p-2 ">

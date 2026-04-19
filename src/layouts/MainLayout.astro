@@ -1,10 +1,11 @@
 ---
 import Navbar from "../components/Global/Navbar.astro";
-import Hero from "../components/Home/Hero.astro";
-import Maincontent from "../components/Home/Maincontent.astro";
+import SearchOverlay from "../components/Global/SearchOverlay.astro";
+import { getSearchIndex } from "../utils/searchIndex";
 import "../styles/global.css";
 
 const { title } = Astro.props;
+const searchItems = await getSearchIndex();
 ---
 
 <!DOCTYPE html>
@@ -37,6 +38,9 @@ const { title } = Astro.props;
 
   <!-- Navbar -->
   <Navbar />
+
+  <!-- Search Overlay -->
+  <SearchOverlay items={searchItems} />
 
   <!-- Page Content -->
   <main class="min-h-screen">

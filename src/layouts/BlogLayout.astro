@@ -1,11 +1,15 @@
 ---
 import Navbar from '../components/Global/Navbar.astro';
+import SearchOverlay from "../components/Global/SearchOverlay.astro";
+import { getSearchIndex } from "../utils/searchIndex";
 import '../styles/global.css';
 
 const {
     title = 'Blogs - Kundan Gosavi',
     description = 'Journal entries and technical writing by Kundan Gosavi',
 } = Astro.props;
+
+const searchItems = await getSearchIndex();
 ---
 
 <!DOCTYPE html>
@@ -36,6 +40,9 @@ const {
     <!-- Navbar -->
     <Navbar />
 
+    <!-- Search Overlay -->
+    <SearchOverlay items={searchItems} />
+    
     <!-- Page Content -->
     <main class="min-h-screen">
         <slot />
