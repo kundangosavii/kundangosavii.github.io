@@ -28,22 +28,86 @@ function getIntroductionText(body: string): string {
 ---
 <div id="blog-list">
 	{posts.map(post => (
-		<BlogCard
-			category={post.data.category}
-			Time={post.data.date}
-			Title={post.data.title}
-			Description={getIntroductionText(post.body)}
-			link={`/blog/${post.slug}`}
-		/>
+		<div class="blog-card" data-category={String(post.data.category || 'ALL').toUpperCase()}>
+			<BlogCard
+				category={post.data.category}
+				Time={post.data.date}
+				Title={post.data.title}
+				Description={getIntroductionText(post.body)}
+				link={`/blog/${post.slug}`}
+			/>
+		</div>
 	))}
 </div>
+<div class="w-full max-w-3xl ml-56 px-8 mt-8 mb-20 flex items-center justify-between">
+	<button id="prev-page" class="px-4 py-2 text-sm font-semibold border border-gray-400 text-gray-700 dark:text-gray-200 dark:border-gray-600 disabled:opacity-40 disabled:cursor-not-allowed">
+		&lt;prev
+	</button>
+	<span id="page-indicator" class="text-sm tracking-wide text-gray-600 dark:text-gray-300">Page 1</span>
+	<button id="next-page" class="px-4 py-2 text-sm font-semibold border border-gray-400 text-gray-700 dark:text-gray-200 dark:border-gray-600 disabled:opacity-40 disabled:cursor-not-allowed">
+		next&gt;
+	</button>
+</div>
 <script type="module" client:load>
-	const cards = document.querySelectorAll('#blog-list .blog-card');
-	function filterBlogs(cat) {
-		cards.forEach(card => {
-			card.style.display = (cat === 'ALL' || card.dataset.category === cat) ? '' : 'none';
-		});
+	const PAGE_SIZE = 5;
+	const cards = Array.from(document.querySelectorAll('#blog-list .blog-card'));
+	const prevButton = document.getElementById('prev-page');
+	const nextButton = document.getElementById('next-page');
+	const pageIndicator = document.getElementById('page-indicator');
+
+	let currentPage = 1;
+	let activeCategory = 'ALL';
+
+	function getFilteredCards() {
+		return cards.filter(card => activeCategory === 'ALL' || card.dataset.category === activeCategory);
 	}
-	window.addEventListener('blog-filter', e => filterBlogs(e.detail));
-	filterBlogs('ALL');
+
+	function renderBlogs() {
+		const filteredCards = getFilteredCards();
+		const totalPages = Math.max(1, Math.ceil(filteredCards.length / PAGE_SIZE));
+		currentPage = Math.min(currentPage, totalPages);
+
+		cards.forEach(card => {
+			card.style.display = 'none';
+		});
+
+		const startIndex = (currentPage - 1) * PAGE_SIZE;
+		const endIndex = startIndex + PAGE_SIZE;
+		filteredCards.slice(startIndex, endIndex).forEach(card => {
+			card.style.display = '';
+		});
+
+		if (pageIndicator) {
+			pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+		}
+		if (prevButton) {
+			prevButton.disabled = currentPage <= 1;
+		}
+		if (nextButton) {
+			nextButton.disabled = currentPage >= totalPages;
+		}
+	}
+
+	window.addEventListener('blog-filter', e => {
+		activeCategory = String(e.detail || 'ALL').toUpperCase();
+		currentPage = 1;
+		renderBlogs();
+	});
+
+	prevButton?.addEventListener('click', () => {
+		if (currentPage > 1) {
+			currentPage -= 1;
+			renderBlogs();
+		}
+	});
+
+	nextButton?.addEventListener('click', () => {
+		const totalPages = Math.max(1, Math.ceil(getFilteredCards().length / PAGE_SIZE));
+		if (currentPage < totalPages) {
+			currentPage += 1;
+			renderBlogs();
+		}
+	});
+
+	renderBlogs();
 </script>
