@@ -1,1 +1,1 @@
-<h1> My Space on the Web — Built, Not Borrowed </h1>
+<h1 align = "center"> My Space on the Web — Built, Not Borrowed </h1>
