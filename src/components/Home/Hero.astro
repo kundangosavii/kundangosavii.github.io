@@ -3,53 +3,53 @@ import { Github, Twitter, Mail, Linkedin, ArrowDown } from "lucide-react"
 
 ---
 
-<section class="relative min-h-screen flex flex-col items-center justify-center">
+<section class="relative flex min-h-[100svh] flex-col items-center justify-center px-4">
 
-  <div class="hero text-center mt-32 flex flex-col items-center justify-center flex-1">
-    <h1 class="font-serif text-9xl font-normal transition-transform duration-300 hover:scale-110 tracking-wide text-gray-900 dark:text-white cursor-pointer">
+  <div class="hero mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center pt-24 text-center sm:pt-28 md:pt-32">
+    <h1 class="cursor-pointer font-serif text-[clamp(3.6rem,19vw,8.5rem)] font-normal leading-[0.9] tracking-[0.025em] text-gray-900 transition-transform duration-300 hover:scale-105 dark:text-white md:text-9xl md:hover:scale-110">
       KUNDAN
     </h1>
 
-    <h2 class="font-poppins text-6xl font-normal tracking-wide text-purple-600 dark:text-purple-400 transition-transform duration-300 hover: cursor-pointer hover:scale-105 mt-4">
+    <h2 class="mt-2 cursor-pointer font-poppins text-[clamp(2.05rem,9.2vw,4.25rem)] font-normal tracking-[0.08em] text-purple-600 transition-transform duration-300 hover:scale-105 dark:text-purple-400 sm:mt-3 md:mt-4 md:text-6xl">
     <span class="typewriter-name">GOSAVI</span>
     </h2>
 
-    <div class="group">
-      <div class="bg-white/10 dark:bg-[#0b0b0b] backdrop-blur-md w-96 h-24 mx-auto mt-8 rounded-md flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-105">
-      <p class="font-poppines text-sm text-gray-700 dark:text-gray-300 px-4">
-       <span class="text-md font-bold">Second year Computer Science student</span></br><span class="text-md font-bold">Exploring in AI and ML</span></br>
-       <span class="text-md font-bold">Passionate about building innovative solutions</span>
+    <div class="group w-full">
+      <div class="mx-auto mt-5 flex w-full max-w-md items-center justify-center rounded-xl border border-white/10 bg-white/10 px-3 py-4 backdrop-blur-md transition-transform duration-300 ease-in-out group-hover:scale-[1.02] dark:bg-[#0b0b0b] sm:mt-7 sm:min-h-24 sm:py-3 md:mt-8">
+      <p class="px-2 text-sm leading-snug text-gray-700 dark:text-gray-300 sm:px-4">
+       <span class="font-bold">Second year Computer Science student</span><br /><span class="font-bold">Exploring in AI and ML</span><br />
+       <span class="font-bold">Passionate about building innovative solutions</span>
       </p>
       </div>
     </div>
 
-    <div class="flex items-center justify-center gap-4">
+    <div class="mt-7 flex items-center justify-center gap-2 sm:mt-11 sm:gap-4">
       <a
         href="https://github.com/kundangosavii"
-        class="inline-block mt-12 px-2 py-2 rounded-full transition-transform duration-300 hover:scale-110 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition hover:-translate-y-3 [&:hover+*]:translate-y-3"
+        class="inline-block rounded-full border border-gray-300 bg-white/80 p-2 font-medium text-gray-900 transition duration-300 hover:-translate-y-2 hover:scale-110 hover:bg-purple-100 dark:border-gray-600 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:hover:-translate-y-3 [&:hover+*]:translate-y-2 sm:[&:hover+*]:translate-y-3"
       >
         <Github />
       </a>
       <a
         href="https://www.linkedin.com/in/kundan-gosavi-911446318/"
-        class="inline-block mt-12 px-2 py-2 rounded-full transition-transform duration-300 hover:scale-110 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition hover:-translate-y-3 [&:hover+*]:translate-y-3"
+        class="inline-block rounded-full border border-gray-300 bg-white/80 p-2 font-medium text-gray-900 transition duration-300 hover:-translate-y-2 hover:scale-110 hover:bg-purple-100 dark:border-gray-600 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:hover:-translate-y-3 [&:hover+*]:translate-y-2 sm:[&:hover+*]:translate-y-3"
       name="LinkedIn">
         <Linkedin />
       </a>
       <a
         href="#"
-        class="inline-block mt-12 px-2 py-2 rounded-full transition-transform duration-300 hover:scale-110 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition hover:-translate-y-3 [&:hover+*]:translate-y-3"
+        class="inline-block rounded-full border border-gray-300 bg-white/80 p-2 font-medium text-gray-900 transition duration-300 hover:-translate-y-2 hover:scale-110 hover:bg-purple-100 dark:border-gray-600 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:hover:-translate-y-3 [&:hover+*]:translate-y-2 sm:[&:hover+*]:translate-y-3"
       >
         <Mail />
       </a>
       <a
         href="https://x.com/Gosavikundan3"
-        class="inline-block mt-12 px-2 py-2 rounded-full transition-transform duration-300 hover:scale-110 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition hover:-translate-y-3 [&:hover+*]:translate-y-3"
+        class="inline-block rounded-full border border-gray-300 bg-white/80 p-2 font-medium text-gray-900 transition duration-300 hover:-translate-y-2 hover:scale-110 hover:bg-purple-100 dark:border-gray-600 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:hover:-translate-y-3 [&:hover+*]:translate-y-2 sm:[&:hover+*]:translate-y-3"
       >
         <Twitter />
       </a>
     </div>
-    <div class="inline-block mt-14 px-2 py-2 rounded-full border border-black animate-bounce text-gray-900 dark:text-white font-medium bg-white/80 dark:bg-white/10 hover:bg-purple-100 dark:hover:bg-white/20 transition dark:border-white/50">
+    <div class="mt-8 inline-block animate-bounce rounded-full border border-black bg-white/80 p-2 font-medium text-gray-900 transition hover:bg-purple-100 dark:border-white/50 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:mt-11 md:mt-14">
         <a href="#main-content" class="scroll-smooth"><ArrowDown /></a>
     </div>
   </div>
