@@ -31,7 +31,7 @@ const serialized = JSON.stringify(items);
 <script is:inline define:vars={{ serialized }}>
   const data = JSON.parse(serialized);
 
-  const openBtn = document.getElementById("menu-search-open");
+  const openBtns = document.querySelectorAll("[data-search-open]");
   const closeBtn = document.getElementById("search-overlay-close");
   const backdrop = document.getElementById("search-overlay-backdrop");
   const dialog = document.getElementById("search-overlay-dialog");
@@ -97,7 +97,7 @@ const serialized = JSON.stringify(items);
       .join("");
   }
 
-  openBtn?.addEventListener("click", openSearch);
+  openBtns.forEach((button) => button.addEventListener("click", openSearch));
   closeBtn?.addEventListener("click", closeSearch);
   backdrop?.addEventListener("click", closeSearch);
 

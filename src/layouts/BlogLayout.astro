@@ -48,8 +48,8 @@ const searchItems = await getSearchIndex();
         <slot />
 
         <script is:inline>
-        const toggle = document.getElementById('theme-toggle');
-        if (toggle) {
+        const toggles = document.querySelectorAll('[data-theme-toggle]');
+        toggles.forEach((toggle) => {
             toggle.addEventListener('click', () => {
                 document.documentElement.classList.toggle('dark');
                 if (document.documentElement.classList.contains('dark')) {
@@ -58,7 +58,7 @@ const searchItems = await getSearchIndex();
                     localStorage.setItem('theme', 'light');
                 }
             });
-        }
+        });
     
         </script>
     </main>
