@@ -85,7 +85,7 @@ Contributions are welcome. If you'd like to suggest changes or improvements, ope
 
 ## Contact
 
-Repository: https://github.com/kundangosavii/portfolio
+Repository: [https://github.com/kundangosavii/portfolio](https://github.com/kundangosavii/kundangosavii.github.io)
 
 If you want to see the live site: https://kundangosavii.github.io
 
