@@ -16,15 +16,29 @@ if (!note) {
 
 const { Content } = await note.render();
 const toArray = (value: string | string[]) => (Array.isArray(value) ? value : [value]);
+
+const getStatusClasses = (status: string) => {
+  const baseClasses = "mb-10 inline-block rounded-full border px-3 py-1 text-xs font-semibold uppercase";
+  switch(status.toLowerCase()) {
+    case 'iterating':
+      return `${baseClasses} bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-700`;
+    case 'blocked':
+      return `${baseClasses} bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-300 dark:border-red-700`;
+    case 'ongoing':
+      return `${baseClasses} bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700`;
+    default:
+      return `${baseClasses} bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700`;
+  }
+};
 ---
 
 <MainLayout title={`${note.data.title} - Lab - Kundan Gosavi`}>
-  <section class="min-h-[calc(100svh-88px)] bg-white px-6 pt-28 pb-16 dark:bg-black md:px-10 md:pt-32">
+  <section class="min-h-[calc(100svh-88px)] bg-white px-6 pt-20 pb-16 dark:bg-black md:px-10 md:pt-20">
     <div class="mx-auto max-w-4xl">
       <p class="mb-3 text-sm font-mono text-gray-500 dark:text-gray-400">{note.data.date}</p>
       <h1 class="mb-6 font-playfair text-5xl text-zinc-900 dark:text-white">{note.data.title}</h1>
 
-      <span class="mb-10 inline-block rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold uppercase text-zinc-700 dark:border-zinc-700 dark:text-zinc-300">
+      <span class:list={[getStatusClasses(note.data.status)]}>
         {note.data.status}
       </span>
 
