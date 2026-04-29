@@ -11,7 +11,7 @@ const projects = await getCollection('projects');
 
 <MainLayout title="Projects - Kundan Gosavi">
   <div id="main-content" class="min-h-screen bg-white dark:bg-black">
-    <div class="mx-auto max-w-6xl px-6 py-28 h-28 md:px-10">
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-12 md:px-10 md:pt-24 md:pb-14">
       <h1 class="mb-4 font-playfair text-5xl text-zinc-900 dark:text-white">My Projects</h1>
       <p class="text-gray-600 dark:text-white/50 text-base">
         Here are some of the projects I've been working on.
@@ -35,32 +35,5 @@ const projects = await getCollection('projects');
       ))}
     </div>
   </div>
-    
-  <div id="scroll-indicator" class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 transition-all duration-300">
-    <a
-      href="#main-content"
-      aria-label="Scroll to main content"
-      class="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-white/90 text-zinc-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-600 focus-visible:ring-offset-2 motion-safe:animate-bounce dark:border-white/30 dark:bg-white/10 dark:text-white/90 dark:hover:border-white/60 dark:hover:bg-white/20"
-    >
-      <ArrowDown class="h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5" />
-    </a>
-  </div>
-
-  <script>
-    const indicator = document.getElementById('scroll-indicator');
-
-    const toggleIndicator = () => {
-      if (!indicator) return;
-
-      if (window.scrollY > 10) {
-        indicator.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
-      } else {
-        indicator.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
-      }
-    };
-
-    toggleIndicator();
-    window.addEventListener('scroll', toggleIndicator, { passive: true });
-  </script>
   <Footer />
 </MainLayout>
