@@ -4,9 +4,9 @@ import { SquareArrowOutUpRight } from 'lucide-react';
 ---
 
 <div class="flex items-center justify-center w-full mt-4">
-  <div class="group flex flex-row bg-white dark:bg-black rounded p-6 w-full max-w-6xl border border-gray-200 hover: dark:border-zinc-800 min-h-[250px] mx-auto">
+  <div class="group flex flex-col md:flex-row bg-white dark:bg-black rounded p-4 md:p-6 w-full max-w-6xl border border-gray-200 hover: dark:border-zinc-800 min-h-[250px] mx-auto gap-4 md:gap-0">
       <!-- Left Side (70%) -->
-      <div class="flex flex-col flex-[7] pr-6 justify-between h-full">
+      <div class="flex flex-col flex-[7] pr-0 md:pr-6 justify-between h-full">
         <div>
           <div class="flex flex-row items-center gap-6 mb-2">
             <span class="text-xs uppercase text-gray-900 dark:text-gray-200">{category}</span>
@@ -39,8 +39,8 @@ import { SquareArrowOutUpRight } from 'lucide-react';
         </div>
       </div>
       <!-- Right Side (30%) -->
-      <div class="flex flex-col flex-[3] items-center justify-center h-full">
-        <img src={thumbnail} alt={altText} class="w-80 h-60 rounded-md border border-gray-300 object-cover" />
+      <div class="flex flex-col flex-[3] items-center justify-center h-full order-first md:order-none">
+        <img src={thumbnail} alt={altText} class="w-full h-48 sm:h-56 md:w-80 md:h-60 rounded-md border border-gray-300 object-cover" />
       </div>
     </div>
 </div>
