@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ProjectCard from '../components/Project/Projectcard.astro';
 import { ArrowDown } from 'lucide-react';
-import Footer from '../components/Global/Footer.astro';
 
 const projects = await getCollection('projects');
 
@@ -35,5 +34,4 @@ const projects = await getCollection('projects');
       ))}
     </div>
   </div>
-  <Footer />
 </MainLayout>

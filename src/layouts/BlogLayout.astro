@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Global/Navbar.astro';
+import Footer from '../components/Global/Footer.astro';
 import SearchOverlay from "../components/Global/Searchoverlay.astro";
 import { getSearchIndex } from "../utils/searchIndex";
 import '../styles/global.css';
@@ -64,5 +65,6 @@ const searchItems = await getSearchIndex();
     </main>
 
     <!-- Footer -->
+    <Footer />
 </body>
 </html>
