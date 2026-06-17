@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text x="50" y="70"
-        font-size="80"
-        text-anchor="middle"
-        font-family="Arial, sans-serif"
-        font-weight="900"
-        fill="black">
-    K
-  </text>
+  <g fill="black">
+    <!-- Vertical spine -->
+    <rect x="20" y="10" width="10" height="80"/>
+    
+    <!-- Upper diagonal -->
+    <polygon points="35,50 75,10 85,20 50,55"/>
+    
+    <!-- Lower diagonal -->
+    <polygon points="35,50 50,45 85,80 75,90"/>
+  </g>
 </svg>
