@@ -13,4 +13,7 @@ description: "Detailed project description here."
 
 ## Overview
 
-Your project content in markdown here.nm
+AI Saathi is AI-powered personal assistant designed to support mental health well bring through emotionally aware and intelligent conversation, daliy mood tracking, journaling and many more.
+
+## Problem Statement
+
